@@ -13,7 +13,7 @@ enableGitInfo = true
 # disqusShortname = ""
 
 # Add your Google Analytics 4 Measurement ID (starts with "G-")
-googleAnalytics = ""  # e.g., "G-XXXXXXXXXX" 
+googleAnalytics = "G-CQCLRNHPGT" 
 
 # Optional params
 [params]
