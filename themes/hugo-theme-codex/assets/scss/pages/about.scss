@@ -6,9 +6,11 @@
   justify-content: center;
   align-items: center;
   font-size: 14px;
+  padding-top: 6rem;
 
   @media screen and (min-width: $medium) {
     font-size: 18px;
+    padding-top: 0;
   }
 }
 
