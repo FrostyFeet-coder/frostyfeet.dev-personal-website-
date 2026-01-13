@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sql on Ansh Wasan</title>
+    <link>//localhost:1313/tags/sql/</link>
+    <description>Recent content in Sql on Ansh Wasan</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Sun, 05 Jan 2025 00:00:00 +0530</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Database Indexing Explained: Speed Up Your Queries</title>
+      <link>//localhost:1313/blog/database-indexing-explained/</link>
+      <pubDate>Sun, 05 Jan 2025 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/blog/database-indexing-explained/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;ve ever wondered why some queries are blazing fast while others take forever, the answer often lies in &lt;strong&gt;indexing&lt;/strong&gt;. Let&amp;rsquo;s dive into how database indexes work and how to use them effectively.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-an-index&#34;&gt;What is an Index?&lt;/h2&gt;&#xA;&lt;p&gt;An index is a data structure that improves the speed of data retrieval operations on a database table. Think of it like the index in a book—instead of reading every page to find a topic, you look it up in the index and go directly to the right page.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

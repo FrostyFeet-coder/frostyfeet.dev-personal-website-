@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Career on Ansh Wasan</title>
+    <link>//localhost:1313/tags/career/</link>
+    <description>Recent content in Career on Ansh Wasan</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Mon, 28 Sep 2020 12:58:24 +0530</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/career/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello World - My Journey into Backend Development</title>
+      <link>//localhost:1313/blog/hello-world/</link>
+      <pubDate>Mon, 13 Jan 2025 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/blog/hello-world/</guid>
+      <description>&lt;p&gt;Hey there, I&amp;rsquo;m &lt;strong&gt;Ansh Wasan&lt;/strong&gt; 👋&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m a backend developer and a 4th-year B.Tech student at Guru Gobind Singh Indraprastha University. This blog is where I share my learnings, experiences, and insights from my journey in software development.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-ill-be-writing-about&#34;&gt;What I&amp;rsquo;ll Be Writing About&lt;/h2&gt;&#xA;&lt;p&gt;My primary focus is &lt;strong&gt;backend development&lt;/strong&gt;, so you can expect posts covering:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;API Design &amp;amp; Development&lt;/strong&gt; - RESTful APIs, GraphQL, best practices&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Database Systems&lt;/strong&gt; - SQL, NoSQL, query optimization, data modeling&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;System Design&lt;/strong&gt; - Scalability, microservices, distributed systems&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;DevOps Essentials&lt;/strong&gt; - Docker, CI/CD, deployment strategies&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Backend Frameworks&lt;/strong&gt; - Spring Boot, Node.js, Django, and more&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;why-backend&#34;&gt;Why Backend?&lt;/h2&gt;&#xA;&lt;p&gt;There&amp;rsquo;s something incredibly satisfying about building the invisible infrastructure that powers applications. While users interact with beautiful frontends, it&amp;rsquo;s the backend that handles the heavy lifting—processing data, managing authentication, ensuring security, and making everything work seamlessly.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

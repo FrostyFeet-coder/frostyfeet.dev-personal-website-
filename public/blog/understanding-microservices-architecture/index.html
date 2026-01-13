@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>Understanding Microservices Architecture: From Monolith to Microservices | Ansh Wasan</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description"
+    content="A beginner-friendly guide to understanding microservices architecture and when to use it">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+
+  
+
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/post.min.0407bbea7b5a62a040a8800a6a82d94d2966062bfe45e95449867ec352286223.css" integrity="sha256-BAe76ntaYqBAqIAKaoLZTSlmBiv&#43;RelUSYZ&#43;w1IoYiM=" />
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" />
+  
+
+  
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/\/localhost:1313\/"
+      },
+      "articleSection" : "blog",
+      "name" : "Understanding Microservices Architecture: From Monolith to Microservices",
+      "headline" : "Understanding Microservices Architecture: From Monolith to Microservices",
+      "description" : "A beginner-friendly guide to understanding microservices architecture and when to use it",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2024",
+      "datePublished": "2024-12-20 00:00:00 \u002b0530 IST",
+      "dateModified" : "2024-12-20 00:00:00 \u002b0530 IST",
+      "url" : "\/\/localhost:1313\/blog\/understanding-microservices-architecture\/",
+      "wordCount" : "434",
+      "keywords" : ["Blog"]
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+    
+    
+      <li>
+        <a  href="/" >about</a>
+      </li>
+    
+    
+    
+      <li>
+        <a  class="active"
+         href="/blog" >blog</a>
+      </li>
+    
+    
+    
+      <li>
+        <a  href="https://drive.google.com/file/d/1qBKugbn_sIHvCeKSp2ouXQDk_G8uraJn/view?usp=sharing" target="_blank">resume</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Understanding Microservices Architecture: From Monolith to Microservices</h1>
+            <time datetime="2024-12-20 00:00:00 &#43;0530 IST" class="post__date">Dec 20 2024</time> 
+          </header>
+          <article class="post__content">
+              
+<p>Microservices have become a buzzword in backend development. But what exactly are they, and when should you use them? Let&rsquo;s break it down.</p>
+<h2 id="monolith-vs-microservices">Monolith vs Microservices<a class="anchor" href="#monolith-vs-microservices">#</a></h2>
+<h3 id="monolithic-architecture">Monolithic Architecture<a class="anchor" href="#monolithic-architecture">#</a></h3>
+<p>In a monolith, all components are part of a single, unified codebase:</p>
+<pre><code>┌─────────────────────────────────────┐
+│           MONOLITHIC APP            │
+├─────────────────────────────────────┤
+│  User Service  │  Order Service     │
+│  Payment       │  Notification      │
+│  Inventory     │  Analytics         │
+├─────────────────────────────────────┤
+│          Single Database            │
+└─────────────────────────────────────┘
+</code></pre>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Simple to develop and deploy</li>
+<li>Easy debugging</li>
+<li>Single codebase</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Scaling is all-or-nothing</li>
+<li>One bug can bring down everything</li>
+<li>Technology lock-in</li>
+</ul>
+<h3 id="microservices-architecture">Microservices Architecture<a class="anchor" href="#microservices-architecture">#</a></h3>
+<p>In microservices, the application is broken into small, independent services:</p>
+<pre><code>┌──────────┐  ┌──────────┐  ┌──────────┐
+│   User   │  │  Order   │  │ Payment  │
+│ Service  │  │ Service  │  │ Service  │
+│   DB     │  │   DB     │  │   DB     │
+└──────────┘  └──────────┘  └──────────┘
+      │             │             │
+      └─────────────┴─────────────┘
+              API Gateway
+</code></pre>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Independent scaling</li>
+<li>Technology flexibility</li>
+<li>Fault isolation</li>
+<li>Easier team organization</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Complex infrastructure</li>
+<li>Network latency</li>
+<li>Distributed debugging</li>
+<li>Data consistency challenges</li>
+</ul>
+<h2 id="key-principles-of-microservices">Key Principles of Microservices<a class="anchor" href="#key-principles-of-microservices">#</a></h2>
+<h3 id="1-single-responsibility">1. Single Responsibility<a class="anchor" href="#1-single-responsibility">#</a></h3>
+<p>Each service should do one thing well:</p>
+<pre><code>UserService      → User management, authentication
+OrderService     → Order processing
+PaymentService   → Payment handling
+NotificationService → Emails, SMS, push notifications
+</code></pre>
+<h3 id="2-decentralized-data-management">2. Decentralized Data Management<a class="anchor" href="#2-decentralized-data-management">#</a></h3>
+<p>Each service owns its data:</p>
+<pre><code>❌ Shared Database (Anti-pattern)
+   All services → Single DB
+
+✅ Database per Service
+   UserService → UserDB
+   OrderService → OrderDB
+</code></pre>
+<h3 id="3-communication-patterns">3. Communication Patterns<a class="anchor" href="#3-communication-patterns">#</a></h3>
+<p><strong>Synchronous (HTTP/REST):</strong></p>
+<pre><code>OrderService --HTTP--&gt; PaymentService
+</code></pre>
+<p><strong>Asynchronous (Message Queues):</strong></p>
+<pre><code>OrderService --Message Queue--&gt; NotificationService
+</code></pre>
+<h2 id="when-to-use-microservices">When to Use Microservices<a class="anchor" href="#when-to-use-microservices">#</a></h2>
+<h3 id="-use-microservices-when">✅ Use Microservices When:<a class="anchor" href="#-use-microservices-when">#</a></h3>
+<ul>
+<li>Large team (multiple teams working on same product)</li>
+<li>Different components have different scaling needs</li>
+<li>You need technology diversity</li>
+<li>You&rsquo;re building for high availability</li>
+</ul>
+<h3 id="-avoid-microservices-when">❌ Avoid Microservices When:<a class="anchor" href="#-avoid-microservices-when">#</a></h3>
+<ul>
+<li>Small team (&lt; 5 developers)</li>
+<li>Early-stage startup (features changing rapidly)</li>
+<li>Simple application with low complexity</li>
+<li>No DevOps expertise</li>
+</ul>
+<h2 id="essential-components">Essential Components<a class="anchor" href="#essential-components">#</a></h2>
+<h3 id="api-gateway">API Gateway<a class="anchor" href="#api-gateway">#</a></h3>
+<p>Single entry point for all client requests:</p>
+<ul>
+<li>Routing</li>
+<li>Authentication</li>
+<li>Rate limiting</li>
+<li>Load balancing</li>
+</ul>
+<h3 id="service-discovery">Service Discovery<a class="anchor" href="#service-discovery">#</a></h3>
+<p>Services need to find each other:</p>
+<ul>
+<li>Consul</li>
+<li>Eureka</li>
+<li>Kubernetes DNS</li>
+</ul>
+<h3 id="circuit-breaker">Circuit Breaker<a class="anchor" href="#circuit-breaker">#</a></h3>
+<p>Handle failures gracefully:</p>
+<pre><code>if (service_failing) {
+    return fallback_response;
+} else {
+    call_service();
+}
+</code></pre>
+<h3 id="centralized-logging">Centralized Logging<a class="anchor" href="#centralized-logging">#</a></h3>
+<p>Aggregate logs from all services:</p>
+<ul>
+<li>ELK Stack (Elasticsearch, Logstash, Kibana)</li>
+<li>Distributed tracing (Jaeger, Zipkin)</li>
+</ul>
+<h2 id="getting-started">Getting Started<a class="anchor" href="#getting-started">#</a></h2>
+<p>If you&rsquo;re new to microservices, start small:</p>
+<ol>
+<li><strong>Start with a monolith</strong> - Get it working first</li>
+<li><strong>Identify boundaries</strong> - Find natural service divisions</li>
+<li><strong>Extract one service</strong> - Start with the least coupled component</li>
+<li><strong>Iterate</strong> - Gradually extract more services</li>
+</ol>
+<h2 id="conclusion">Conclusion<a class="anchor" href="#conclusion">#</a></h2>
+<p>Microservices aren&rsquo;t a silver bullet. They solve specific problems but come with their own complexity. Understand your requirements and team capabilities before making the switch.</p>
+<p>Remember: <strong>&ldquo;Microservices are not a goal, they&rsquo;re a means to achieve a goal.&rdquo;</strong></p>
+<p>Happy architecting! 🏗️</p>
+
+
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="//localhost:1313/tags/microservices/">microservices</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="//localhost:1313/tags/architecture/">architecture</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="//localhost:1313/tags/system-design/">system-design</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="//localhost:1313/tags/backend/">backend</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="//localhost:1313/blog/docker-for-backend-developers/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Docker for Backend Developers: A Practical Guide</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="//localhost:1313/blog/database-indexing-explained/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Database Indexing Explained: Speed Up Your Queries</span>
+    </a>
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/FrostyFeet-coder"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('//localhost:1313/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Email"
+         href="mailto:wasan.ansh@gmail.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('//localhost:1313/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="LinkedIn"
+         href="https://www.linkedin.com/in/ansh-wasan/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('//localhost:1313/svg/linkedin.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2026</p>
+          </footer>
+          </div>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.301a8b0870381bf76b3b5182e8966d363a0474281183439beb024d8b8228fc66.js" integrity="sha256-MBqLCHA4G/drO1GC6JZtNjoEdCgRg0Ob6wJNi4Io/GY="
+    crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+
+
+
+  <script async defer src="https://api.skrilltrax.dev/latest.js"></script>
+<noscript><img src="https://api.skrilltrax.dev/noscript.gif" alt=""/></noscript>
+
+</body>
+
+</html>

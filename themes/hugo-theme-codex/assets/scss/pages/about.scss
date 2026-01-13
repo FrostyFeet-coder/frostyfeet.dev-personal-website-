@@ -50,11 +50,64 @@
 main {
   padding-top: 0;
   padding-bottom: 0;
-  height: 100%;
+  height: auto;
+  min-height: 100%;
 }
 
 .social-icons {
   justify-content: flex-start;
   padding-top: 1rem;
-  margin-left: -0.8rem;  // offset to negate icon's padding to align with text above
+  margin-left: -0.8rem; // offset to negate icon's padding to align with text above
+}
+
+.content-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+
+  @media screen and (min-width: $medium) {
+    padding: 3rem 2rem 5rem;
+  }
+}
+
+.content {
+  h2 {
+    font-size: 1.75em;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    color: $black;
+  }
+
+  h3 {
+    font-size: 1.25em;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: $primary;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+    color: $grey;
+    font-size: 0.95em;
+  }
+
+  ul {
+    margin-left: 1.25rem;
+    margin-bottom: 1rem;
+
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+  }
+
+  strong {
+    color: $black;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid rgba($grey, 0.3);
+    margin: 1.5rem 0;
+  }
 }

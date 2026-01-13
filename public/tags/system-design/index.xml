@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>System-Design on Ansh Wasan</title>
+    <link>//localhost:1313/tags/system-design/</link>
+    <description>Recent content in System-Design on Ansh Wasan</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Fri, 20 Dec 2024 00:00:00 +0530</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/system-design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding Microservices Architecture: From Monolith to Microservices</title>
+      <link>//localhost:1313/blog/understanding-microservices-architecture/</link>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/blog/understanding-microservices-architecture/</guid>
+      <description>&lt;p&gt;Microservices have become a buzzword in backend development. But what exactly are they, and when should you use them? Let&amp;rsquo;s break it down.&lt;/p&gt;&#xA;&lt;h2 id=&#34;monolith-vs-microservices&#34;&gt;Monolith vs Microservices&lt;/h2&gt;&#xA;&lt;h3 id=&#34;monolithic-architecture&#34;&gt;Monolithic Architecture&lt;/h3&gt;&#xA;&lt;p&gt;In a monolith, all components are part of a single, unified codebase:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;┌─────────────────────────────────────┐&#xA;│           MONOLITHIC APP            │&#xA;├─────────────────────────────────────┤&#xA;│  User Service  │  Order Service     │&#xA;│  Payment       │  Notification      │&#xA;│  Inventory     │  Analytics         │&#xA;├─────────────────────────────────────┤&#xA;│          Single Database            │&#xA;└─────────────────────────────────────┘&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;&lt;strong&gt;Pros:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

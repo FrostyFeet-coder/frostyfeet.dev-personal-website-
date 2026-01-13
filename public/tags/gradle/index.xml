@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gradle on Ansh Wasan</title>
+    <link>http://localhost:1313/tags/gradle/</link>
+    <description>Recent content in Gradle on Ansh Wasan</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Mon, 19 Apr 2021 15:37:35 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/gradle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Centralized dependency management using Gradle version catalogs</title>
+      <link>http://localhost:1313/blog/centralized-dependency-management-gradle-version-catalogs/</link>
+      <pubDate>Sat, 17 Apr 2021 18:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/centralized-dependency-management-gradle-version-catalogs/</guid>
+      <description>&lt;p&gt;The Gradle team recently released Gradle 7.0 and it comes with a bunch of exciting new features like &lt;a href=&#34;https://docs.gradle.org/7.0/release-notes.html#apple-silicon&#34; &#xA;  &#xA;   target=&#34;_blank&#34; rel=&#34;noreferrer noopener&#34; &#xA;&gt;native support for M1 macs&lt;/a&gt;&#xA;, &lt;a href=&#34;&#34; &#xA;  &#xA;  &#xA;&gt;type-safe project accessors&lt;/a&gt;&#xA;, and &lt;a href=&#34;https://docs.gradle.org/7.0/release-notes.html#support-for-java-16&#34; &#xA;  &#xA;   target=&#34;_blank&#34; rel=&#34;noreferrer noopener&#34; &#xA;&gt;support for running and building Java 16&lt;/a&gt;&#xA;. However, today we&amp;rsquo;re gonna focus on one specific feature, Gradle version catalogs.&lt;/p&gt;&#xA;&lt;p&gt;&lt;sub&gt;* Version catalogs is currently an experimental feature so the API may change in the future. &lt;/sub&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-a-version-catalog&#34;&gt;What is a version catalog?&lt;/h2&gt;&#xA;&lt;p&gt;A version catalog is a list of dependencies that the user can pick and use inside their Gradle build scripts to declare dependencies. It allows the users to manage and share their dependencies from a centralized location.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

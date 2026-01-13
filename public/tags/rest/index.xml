@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rest on Ansh Wasan</title>
+    <link>//localhost:1313/tags/rest/</link>
+    <description>Recent content in Rest on Ansh Wasan</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Fri, 10 Jan 2025 00:00:00 +0530</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/rest/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building RESTful APIs: Best Practices Every Backend Developer Should Know</title>
+      <link>//localhost:1313/blog/building-restful-apis-best-practices/</link>
+      <pubDate>Fri, 10 Jan 2025 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/blog/building-restful-apis-best-practices/</guid>
+      <description>&lt;p&gt;Building APIs is at the core of backend development. Whether you&amp;rsquo;re creating a service for a mobile app, a web application, or other microservices, following best practices ensures your API is intuitive, maintainable, and scalable.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-use-meaningful-resource-names&#34;&gt;1. Use Meaningful Resource Names&lt;/h2&gt;&#xA;&lt;p&gt;Your URLs should be nouns, not verbs. Resources represent entities in your system.&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;✅ Good:&#xA;GET    /users&#xA;GET    /users/{id}&#xA;POST   /users&#xA;PUT    /users/{id}&#xA;DELETE /users/{id}&#xA;&#xA;❌ Bad:&#xA;GET    /getUsers&#xA;POST   /createUser&#xA;DELETE /deleteUser/{id}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h2 id=&#34;2-use-proper-http-methods&#34;&gt;2. Use Proper HTTP Methods&lt;/h2&gt;&#xA;&lt;p&gt;Each HTTP method has a specific purpose:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

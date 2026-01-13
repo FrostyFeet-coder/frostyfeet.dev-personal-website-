@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android-Studio on Ansh Wasan</title>
+    <link>http://localhost:1313/tags/android-studio/</link>
+    <description>Recent content in Android-Studio on Ansh Wasan</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Thu, 19 Aug 2021 13:00:31 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/android-studio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Validating your layouts ft. Android Studio</title>
+      <link>http://localhost:1313/blog/validating-your-layouts-ft.android-studio/</link>
+      <pubDate>Thu, 19 Aug 2021 11:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/validating-your-layouts-ft.android-studio/</guid>
+      <description>&lt;p&gt;When was the last time you had to fix your screen for a bigger font size? The screen doesn&amp;rsquo;t look good on dark mode? or maybe you forgot to take landscape mode into account. These are some bugs that are especially common for me and maybe for a lot of other developers. Fret not! we&amp;rsquo;ve got Android Studio to the rescue :)&lt;/p&gt;&#xA;&lt;h2 id=&#34;layout-validation&#34;&gt;Layout Validation&lt;/h2&gt;&#xA;&lt;p&gt;Layout Validation is a tool using which you can validate your layouts while you&amp;rsquo;re building them. While you can already see your current UI on several devices using the Android Studio&amp;rsquo;s visual layout editor, Layout Validation allows you to check all those presets simultaneously and with some pretty sick features.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devops on Ansh Wasan</title>
+    <link>//localhost:1313/tags/devops/</link>
+    <description>Recent content in Devops on Ansh Wasan</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Sun, 15 Dec 2024 00:00:00 +0530</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker for Backend Developers: A Practical Guide</title>
+      <link>//localhost:1313/blog/docker-for-backend-developers/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/blog/docker-for-backend-developers/</guid>
+      <description>&lt;p&gt;Docker has revolutionized how we develop, ship, and run applications. As a backend developer, understanding Docker is essential. Let&amp;rsquo;s explore how to containerize your backend apps.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-docker&#34;&gt;Why Docker?&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;&amp;ldquo;It works on my machine&amp;rdquo;&lt;/strong&gt; - We&amp;rsquo;ve all heard this. Docker solves this by packaging your application with all its dependencies.&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;┌─────────────────────────────────────┐&#xA;│         Docker Container            │&#xA;├─────────────────────────────────────┤&#xA;│  Your Application                   │&#xA;│  Runtime (Node.js, Python, Java)    │&#xA;│  Dependencies                       │&#xA;│  System Libraries                   │&#xA;│  OS (Linux)                         │&#xA;└─────────────────────────────────────┘&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h2 id=&#34;core-concepts&#34;&gt;Core Concepts&lt;/h2&gt;&#xA;&lt;h3 id=&#34;images-vs-containers&#34;&gt;Images vs Containers&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code&gt;Image     → Blueprint (like a class)&#xA;Container → Running instance (like an object)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;dockerfile&#34;&gt;Dockerfile&lt;/h3&gt;&#xA;&lt;p&gt;A Dockerfile is your recipe for building an image:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

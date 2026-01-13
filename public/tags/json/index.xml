@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JSON on Ansh Wasan</title>
+    <link>http://localhost:1313/tags/json/</link>
+    <description>Recent content in JSON on Ansh Wasan</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Fri, 01 Jan 2021 08:16:53 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/json/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using polymorphic json adapter with Moshi</title>
+      <link>http://localhost:1313/blog/using-polymorphic-adapter-moshi/</link>
+      <pubDate>Fri, 01 Jan 2021 05:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/using-polymorphic-adapter-moshi/</guid>
+      <description>&lt;p&gt;Hey, today we&amp;rsquo;re gonna learn how to use the polymorphic json adapter with Moshi. Let&amp;rsquo;s start with some basics around Moshi and its adapters.&lt;/p&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s the &lt;a href=&#34;#creating-a-polymorphic-adapter&#34; &#xA;  &#xA;  &#xA;&gt;code&lt;/a&gt;&#xA; if you don&amp;rsquo;t have time to read everything.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-moshi&#34;&gt;What is Moshi?&lt;/h2&gt;&#xA;&lt;p&gt;Quoting Moshi&amp;rsquo;s Github page here,&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Moshi is a modern JSON library for Android and Java. It makes it easy to parse JSON into Java objects.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;It is a fast and modern library that can parse JSON using both codegen and reflection. It uses Okio and can also use the same buffer as Okhttp for efficiency. If you haven&amp;rsquo;t used Moshi before, I highly* recommend you to try it.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

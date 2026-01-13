@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Ansh Wasan</title>
+    <link>//localhost:1313/tags/</link>
+    <description>Recent content in Tags on Ansh Wasan</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Fri, 10 Jan 2025 00:00:00 +0530</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Backend</title>
+      <link>//localhost:1313/tags/backend/</link>
+      <pubDate>Mon, 13 Jan 2025 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/tags/backend/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Career</title>
+      <link>//localhost:1313/tags/career/</link>
+      <pubDate>Mon, 13 Jan 2025 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/tags/career/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Introduction</title>
+      <link>//localhost:1313/tags/introduction/</link>
+      <pubDate>Mon, 13 Jan 2025 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/tags/introduction/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Api</title>
+      <link>//localhost:1313/tags/api/</link>
+      <pubDate>Fri, 10 Jan 2025 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/tags/api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Best-Practices</title>
+      <link>//localhost:1313/tags/best-practices/</link>
+      <pubDate>Fri, 10 Jan 2025 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/tags/best-practices/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rest</title>
+      <link>//localhost:1313/tags/rest/</link>
+      <pubDate>Fri, 10 Jan 2025 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/tags/rest/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Database</title>
+      <link>//localhost:1313/tags/database/</link>
+      <pubDate>Sun, 05 Jan 2025 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/tags/database/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Performance</title>
+      <link>//localhost:1313/tags/performance/</link>
+      <pubDate>Sun, 05 Jan 2025 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/tags/performance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sql</title>
+      <link>//localhost:1313/tags/sql/</link>
+      <pubDate>Sun, 05 Jan 2025 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/tags/sql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Architecture</title>
+      <link>//localhost:1313/tags/architecture/</link>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/tags/architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Microservices</title>
+      <link>//localhost:1313/tags/microservices/</link>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/tags/microservices/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>System-Design</title>
+      <link>//localhost:1313/tags/system-design/</link>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/tags/system-design/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Containers</title>
+      <link>//localhost:1313/tags/containers/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/tags/containers/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Devops</title>
+      <link>//localhost:1313/tags/devops/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/tags/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>//localhost:1313/tags/docker/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/tags/docker/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

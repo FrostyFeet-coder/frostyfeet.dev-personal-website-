@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Backend on Ansh Wasan</title>
+    <link>//localhost:1313/tags/backend/</link>
+    <description>Recent content in Backend on Ansh Wasan</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Fri, 10 Jan 2025 00:00:00 +0530</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/backend/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello World - My Journey into Backend Development</title>
+      <link>//localhost:1313/blog/hello-world/</link>
+      <pubDate>Mon, 13 Jan 2025 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/blog/hello-world/</guid>
+      <description>&lt;p&gt;Hey there, I&amp;rsquo;m &lt;strong&gt;Ansh Wasan&lt;/strong&gt; 👋&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m a backend developer and a 4th-year B.Tech student at Guru Gobind Singh Indraprastha University. This blog is where I share my learnings, experiences, and insights from my journey in software development.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-ill-be-writing-about&#34;&gt;What I&amp;rsquo;ll Be Writing About&lt;/h2&gt;&#xA;&lt;p&gt;My primary focus is &lt;strong&gt;backend development&lt;/strong&gt;, so you can expect posts covering:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;API Design &amp;amp; Development&lt;/strong&gt; - RESTful APIs, GraphQL, best practices&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Database Systems&lt;/strong&gt; - SQL, NoSQL, query optimization, data modeling&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;System Design&lt;/strong&gt; - Scalability, microservices, distributed systems&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;DevOps Essentials&lt;/strong&gt; - Docker, CI/CD, deployment strategies&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Backend Frameworks&lt;/strong&gt; - Spring Boot, Node.js, Django, and more&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;why-backend&#34;&gt;Why Backend?&lt;/h2&gt;&#xA;&lt;p&gt;There&amp;rsquo;s something incredibly satisfying about building the invisible infrastructure that powers applications. While users interact with beautiful frontends, it&amp;rsquo;s the backend that handles the heavy lifting—processing data, managing authentication, ensuring security, and making everything work seamlessly.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building RESTful APIs: Best Practices Every Backend Developer Should Know</title>
+      <link>//localhost:1313/blog/building-restful-apis-best-practices/</link>
+      <pubDate>Fri, 10 Jan 2025 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/blog/building-restful-apis-best-practices/</guid>
+      <description>&lt;p&gt;Building APIs is at the core of backend development. Whether you&amp;rsquo;re creating a service for a mobile app, a web application, or other microservices, following best practices ensures your API is intuitive, maintainable, and scalable.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-use-meaningful-resource-names&#34;&gt;1. Use Meaningful Resource Names&lt;/h2&gt;&#xA;&lt;p&gt;Your URLs should be nouns, not verbs. Resources represent entities in your system.&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;✅ Good:&#xA;GET    /users&#xA;GET    /users/{id}&#xA;POST   /users&#xA;PUT    /users/{id}&#xA;DELETE /users/{id}&#xA;&#xA;❌ Bad:&#xA;GET    /getUsers&#xA;POST   /createUser&#xA;DELETE /deleteUser/{id}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h2 id=&#34;2-use-proper-http-methods&#34;&gt;2. Use Proper HTTP Methods&lt;/h2&gt;&#xA;&lt;p&gt;Each HTTP method has a specific purpose:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Database Indexing Explained: Speed Up Your Queries</title>
+      <link>//localhost:1313/blog/database-indexing-explained/</link>
+      <pubDate>Sun, 05 Jan 2025 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/blog/database-indexing-explained/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;ve ever wondered why some queries are blazing fast while others take forever, the answer often lies in &lt;strong&gt;indexing&lt;/strong&gt;. Let&amp;rsquo;s dive into how database indexes work and how to use them effectively.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-an-index&#34;&gt;What is an Index?&lt;/h2&gt;&#xA;&lt;p&gt;An index is a data structure that improves the speed of data retrieval operations on a database table. Think of it like the index in a book—instead of reading every page to find a topic, you look it up in the index and go directly to the right page.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Understanding Microservices Architecture: From Monolith to Microservices</title>
+      <link>//localhost:1313/blog/understanding-microservices-architecture/</link>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/blog/understanding-microservices-architecture/</guid>
+      <description>&lt;p&gt;Microservices have become a buzzword in backend development. But what exactly are they, and when should you use them? Let&amp;rsquo;s break it down.&lt;/p&gt;&#xA;&lt;h2 id=&#34;monolith-vs-microservices&#34;&gt;Monolith vs Microservices&lt;/h2&gt;&#xA;&lt;h3 id=&#34;monolithic-architecture&#34;&gt;Monolithic Architecture&lt;/h3&gt;&#xA;&lt;p&gt;In a monolith, all components are part of a single, unified codebase:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;┌─────────────────────────────────────┐&#xA;│           MONOLITHIC APP            │&#xA;├─────────────────────────────────────┤&#xA;│  User Service  │  Order Service     │&#xA;│  Payment       │  Notification      │&#xA;│  Inventory     │  Analytics         │&#xA;├─────────────────────────────────────┤&#xA;│          Single Database            │&#xA;└─────────────────────────────────────┘&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;&lt;strong&gt;Pros:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Docker for Backend Developers: A Practical Guide</title>
+      <link>//localhost:1313/blog/docker-for-backend-developers/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0530</pubDate>
+      <guid>//localhost:1313/blog/docker-for-backend-developers/</guid>
+      <description>&lt;p&gt;Docker has revolutionized how we develop, ship, and run applications. As a backend developer, understanding Docker is essential. Let&amp;rsquo;s explore how to containerize your backend apps.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-docker&#34;&gt;Why Docker?&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;&amp;ldquo;It works on my machine&amp;rdquo;&lt;/strong&gt; - We&amp;rsquo;ve all heard this. Docker solves this by packaging your application with all its dependencies.&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;┌─────────────────────────────────────┐&#xA;│         Docker Container            │&#xA;├─────────────────────────────────────┤&#xA;│  Your Application                   │&#xA;│  Runtime (Node.js, Python, Java)    │&#xA;│  Dependencies                       │&#xA;│  System Libraries                   │&#xA;│  OS (Linux)                         │&#xA;└─────────────────────────────────────┘&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h2 id=&#34;core-concepts&#34;&gt;Core Concepts&lt;/h2&gt;&#xA;&lt;h3 id=&#34;images-vs-containers&#34;&gt;Images vs Containers&lt;/h3&gt;&#xA;&lt;pre&gt;&lt;code&gt;Image     → Blueprint (like a class)&#xA;Container → Running instance (like an object)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3 id=&#34;dockerfile&#34;&gt;Dockerfile&lt;/h3&gt;&#xA;&lt;p&gt;A Dockerfile is your recipe for building an image:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

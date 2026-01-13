@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>Centralized dependency management using Gradle version catalogs | Ansh Wasan</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description"
+    content="A version catalog is a list of dependencies that the user can pick and use inside their Gradle build scripts to declare dependencies. It allows the users to manage and share their dependencies from a centralized location.">
+  <meta name="keywords" content="Version Catalogs , Gradle , Dependency Management">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+
+  
+
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/post.min.0407bbea7b5a62a040a8800a6a82d94d2966062bfe45e95449867ec352286223.css" integrity="sha256-BAe76ntaYqBAqIAKaoLZTSlmBiv&#43;RelUSYZ&#43;w1IoYiM=" />
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" />
+  
+
+  
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/"
+      },
+      "articleSection" : "blog",
+      "name" : "Centralized dependency management using Gradle version catalogs",
+      "headline" : "Centralized dependency management using Gradle version catalogs",
+      "description" : "A version catalog is a list of dependencies that the user can pick and use inside their Gradle build scripts to declare dependencies. It allows the users to manage and share their dependencies from a centralized location.",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2021",
+      "datePublished": "2021-04-17 18:30:00 \u002b0000 UTC",
+      "dateModified" : "2021-04-17 18:30:00 \u002b0000 UTC",
+      "url" : "http:\/\/localhost:1313\/blog\/centralized-dependency-management-gradle-version-catalogs\/",
+      "wordCount" : "649",
+      "keywords" : ["Version Catalogs", "Gradle", "Dependency Management", "Blog"]
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+    
+    
+      <li>
+        <a  href="/" >about</a>
+      </li>
+    
+    
+    
+      <li>
+        <a  class="active"
+         href="/blog" >blog</a>
+      </li>
+    
+    
+    
+      <li>
+        <a  href="https://drive.google.com/file/d/1WNXhgC_XxthT5_QHyBmoWOa5Szkfxaji/view?usp=sharing" target="_blank">resume</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Centralized dependency management using Gradle version catalogs</h1>
+            <time datetime="2021-04-17 18:30:00 &#43;0000 UTC" class="post__date">Apr 17 2021</time> 
+          </header>
+          <article class="post__content">
+              
+<p>The Gradle team recently released Gradle 7.0 and it comes with a bunch of exciting new features like <a href="https://docs.gradle.org/7.0/release-notes.html#apple-silicon" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>native support for M1 macs</a>
+, <a href="" 
+  
+  
+>type-safe project accessors</a>
+, and <a href="https://docs.gradle.org/7.0/release-notes.html#support-for-java-16" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>support for running and building Java 16</a>
+. However, today we&rsquo;re gonna focus on one specific feature, Gradle version catalogs.</p>
+<p><sub>* Version catalogs is currently an experimental feature so the API may change in the future. </sub></p>
+<h2 id="what-is-a-version-catalog">What is a version catalog?<a class="anchor" href="#what-is-a-version-catalog">#</a></h2>
+<p>A version catalog is a list of dependencies that the user can pick and use inside their Gradle build scripts to declare dependencies. It allows the users to manage and share their dependencies from a centralized location.</p>
+<p>The version catalog can be specified using a <a href="https://toml.io/" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>TOML</a>
+ file.</p>
+<h3 id="toml-file-format">TOML file format<a class="anchor" href="#toml-file-format">#</a></h3>
+<p>The TOML file consists of 3 major sections:</p>
+<ul>
+<li><code>[versions]</code> section is used to declare versions that can be referenced by dependencies.</li>
+<li><code>[libraries]</code> section is used to declare the dependencies. The dependencies can be declared using multiple notations as found <a href="https://docs.gradle.org/7.0/userguide/platforms.html#sub::toml-dependencies-format" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>here</a>
+.</li>
+<li><code>[bundles]</code> section is used to declare dependency bundles that can be used to import multiple dependencies together.</li>
+</ul>
+<h2 id="why-use-a-version-catalog">Why use a version catalog?<a class="anchor" href="#why-use-a-version-catalog">#</a></h2>
+<p>Currently, there are multiple ways to declare and use dependencies inside our Gradle projects. Writing dependencies inside build scripts, creating separate <code>dependencies.gradle</code> file or even using <code>buildSrc</code> to share dependencies, but with all these approaches, there are certain pitfalls and gotcha&rsquo;s that users have to take care of, so the Gradle team created a standard way to work through this.</p>
+<h3 id="benefits">Benefits<a class="anchor" href="#benefits">#</a></h3>
+<ul>
+<li>Version catalog helps arrange dependencies inside a single file. Dependencies can be used with multi-project builds and even between completely different projects.</li>
+<li>Unlike <code>buildSrc</code> changing a dependency inside  the <code>lib.versions.toml</code> won&rsquo;t invalidate the complete <code>buildSrc</code> cache.</li>
+<li>TOML is a reasonably popular and language-agnostic format, so popular tools like <a href="https://github.com/dependabot" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>Dependabot</a>
+ can be updated to work with version catalogs once the feature is stable.</li>
+</ul>
+<h2 id="how-to-use-the-gradle-version-catalog">How to use the Gradle version catalog?<a class="anchor" href="#how-to-use-the-gradle-version-catalog">#</a></h2>
+<p>There are a few steps that we have to perform to use the version catalog.</p>
+<ol>
+<li>
+<p>First, make sure you are using Gradle 7.0. If you&rsquo;re not, you can update your project&rsquo;s Gradle version using the following command.</p>
+<pre><code class="language-shell">./gradlew wrapper --gradle-version=7.0
+</code></pre>
+</li>
+<li>
+<p>Enable the feature by adding the following in your <code>settings.gradle(.kts)</code>.</p>
+<pre><code class="language-kotlin">enableFeaturePreview(&quot;VERSION_CATALOGS&quot;)
+</code></pre>
+<p>This is necessary to do because the version catalog is an experimental feature on Gradle 7.0.</p>
+</li>
+<li>
+<p>Now, we are all set to define our dependencies. To do that, create a file named <code>libs.versions.toml</code> inside the <code>gradle/</code> directory.</p>
+<pre><code class="language-toml"># gradle/libs.versions.toml
+
+[versions]
+compose = &quot;1.0.0-beta04&quot;
+coroutines = &quot;1.4.3&quot;
+lifecycle = &quot;2.4.0-alpha01&quot;
+
+[libraries]
+# Kotlin dependencies
+kotlin-coroutines-android = { module = &quot;org.jetbrains.kotlinx:kotlinx-coroutines-android&quot;, version.ref = &quot;coroutines&quot; }
+kotlin-coroutines-core = { module = &quot;org.jetbrains.kotlinx:kotlinx-coroutines-core&quot;, version.ref = &quot;coroutines&quot; }
+kotlin-coroutines-jvm = { module = &quot;org.jetbrains.kotlinx:kotlinx-coroutines-jvm&quot;, version.ref = &quot;coroutines&quot; }
+
+# AndroidX dependencies
+androidx-appcompat = &quot;androidx.appcompat:appcompat:1.3.0-rc01&quot;
+androidx-browser = &quot;androidx.browser:browser:1.3.0&quot;
+androidx-coreLibraryDesugaring = &quot;com.android.tools:desugar_jdk_libs:1.0.10&quot;
+androidx-datastore = &quot;androidx.datastore:datastore-preferences:1.0.0-alpha08&quot;
+androidx-lifecycle-runtimeKtx = { module = &quot;androidx.lifecycle:lifecycle-runtime-ktx&quot;, version.ref = &quot;lifecycle&quot; }
+androidx-lifecycle-viewmodelKtx = { module = &quot;androidx.lifecycle:lifecycle-viewmodel-ktx&quot;, version.ref = &quot;lifecycle&quot; }
+
+[bundles]
+androidxLifecycle = [&quot;androidx-lifecycle-runtimeKtx&quot;, &quot;androidx-lifecycle-viewmodelKtx&quot;]
+</code></pre>
+</li>
+</ol>
+<p>This will generate an extension in your Gradle build with the name <code>libs</code>, which can then be used in your Gradle scripts to access dependencies. Here are a few examples 👇</p>
+<pre><code class="language-kotlin">composeOptions {
+  # versions
+  kotlinCompilerExtensionVersion libs.versions.compose.get() // The get() is required because the API returns a Provider&lt;String&gt;
+}
+    
+dependencies {
+  # libraries
+  implementation(libs.kotlin.coroutines.android)
+      
+  # bundles
+  implementation(libs.bundles.androidxLifecycle)
+}
+</code></pre>
+<h3 id="stuck-somewhere">Stuck somewhere?<a class="anchor" href="#stuck-somewhere">#</a></h3>
+<p>Here&rsquo;s a bunch of PR&rsquo;s that you can look at if you need any help in migrating to version catalogs.</p>
+<p><a href="https://github.com/android-password-store/Android-Password-Store/pull/1381/files" 
+  
+   target="_blank" rel="noreferrer noopener" 
+><strong>Android Password Store</strong></a>
+</p>
+<p><a href="https://github.com/google/accompanist/pull/345" 
+  
+   target="_blank" rel="noreferrer noopener" 
+><strong>Accompanist</strong></a>
+</p>
+<p><a href="https://github.com/msfjarvis/compose-lobsters/pull/217" 
+  
+   target="_blank" rel="noreferrer noopener" 
+><strong>Claw</strong></a>
+</p>
+<p>If you still need help with something, feel free to reach out on any of the platforms below.</p>
+<h2 id="conclusion">Conclusion<a class="anchor" href="#conclusion">#</a></h2>
+<p>Version catalog helps in centralizing common definitions and allows sharing of dependencies and plugins. There are numerous benefits of having a standard way to manage dependencies and hopefully, it will give developers some new, powerful set of tools to work with. Go ahead, give it a try and let me know how you feel about it.</p>
+<p>Happy Coding!</p>
+
+
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/gradle/">Gradle</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/android/">Android</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="http://localhost:1313/blog/using-polymorphic-adapter-moshi/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Using polymorphic json adapter with Moshi</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="http://localhost:1313/blog/validating-your-layouts-ft.android-studio/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Validating your layouts ft. Android Studio</span>
+    </a>
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/anshwasan"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Email"
+         href="mailto:ansh.wasan@example.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="LinkedIn"
+         href="https://linkedin.com/in/anshwasan"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/linkedin.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2026</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">Centralized dependency management using Gradle version catalogs</div> 
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-a-version-catalog">What is a version catalog?</a>
+      <ul>
+        <li><a href="#toml-file-format">TOML file format</a></li>
+      </ul>
+    </li>
+    <li><a href="#why-use-a-version-catalog">Why use a version catalog?</a>
+      <ul>
+        <li><a href="#benefits">Benefits</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-use-the-gradle-version-catalog">How to use the Gradle version catalog?</a>
+      <ul>
+        <li><a href="#stuck-somewhere">Stuck somewhere?</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.301a8b0870381bf76b3b5182e8966d363a0474281183439beb024d8b8228fc66.js" integrity="sha256-MBqLCHA4G/drO1GC6JZtNjoEdCgRg0Ob6wJNi4Io/GY="
+    crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+
+  <script async defer src="https://api.skrilltrax.dev/latest.js"></script>
+<noscript><img src="https://api.skrilltrax.dev/noscript.gif" alt=""/></noscript>
+
+</body>
+
+</html>

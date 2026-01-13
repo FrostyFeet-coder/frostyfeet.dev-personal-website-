@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>Using polymorphic json adapter with Moshi | Ansh Wasan</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description"
+    content="Learn how to use polymorphic adapter with an abstract class">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+
+  
+
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/post.min.0407bbea7b5a62a040a8800a6a82d94d2966062bfe45e95449867ec352286223.css" integrity="sha256-BAe76ntaYqBAqIAKaoLZTSlmBiv&#43;RelUSYZ&#43;w1IoYiM=" />
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" />
+  
+
+  
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/"
+      },
+      "articleSection" : "blog",
+      "name" : "Using polymorphic json adapter with Moshi",
+      "headline" : "Using polymorphic json adapter with Moshi",
+      "description" : "Learn how to use polymorphic adapter with an abstract class",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2021",
+      "datePublished": "2021-01-01 05:30:00 \u002b0000 UTC",
+      "dateModified" : "2021-01-01 05:30:00 \u002b0000 UTC",
+      "url" : "http:\/\/localhost:1313\/blog\/using-polymorphic-adapter-moshi\/",
+      "wordCount" : "799",
+      "keywords" : ["Blog"]
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+    
+    
+      <li>
+        <a  href="/" >about</a>
+      </li>
+    
+    
+    
+      <li>
+        <a  class="active"
+         href="/blog" >blog</a>
+      </li>
+    
+    
+    
+      <li>
+        <a  href="https://drive.google.com/file/d/1WNXhgC_XxthT5_QHyBmoWOa5Szkfxaji/view?usp=sharing" target="_blank">resume</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Using polymorphic json adapter with Moshi</h1>
+            <time datetime="2021-01-01 05:30:00 &#43;0000 UTC" class="post__date">Jan 1 2021</time> 
+          </header>
+          <article class="post__content">
+              
+<p>Hey, today we&rsquo;re gonna learn how to use the polymorphic json adapter with Moshi. Let&rsquo;s start with some basics around Moshi and its adapters.</p>
+<p>Here&rsquo;s the <a href="#creating-a-polymorphic-adapter" 
+  
+  
+>code</a>
+ if you don&rsquo;t have time to read everything.</p>
+<h2 id="what-is-moshi">What is Moshi?<a class="anchor" href="#what-is-moshi">#</a></h2>
+<p>Quoting Moshi&rsquo;s Github page here,</p>
+<blockquote>
+<p>Moshi is a modern JSON library for Android and Java. It makes it easy to parse JSON into Java objects.</p>
+</blockquote>
+<p>It is a fast and modern library that can parse JSON using both codegen and reflection. It uses Okio and can also use the same buffer as Okhttp for efficiency. If you haven&rsquo;t used Moshi before, I highly* recommend you to try it.</p>
+<p><sub>* Moshi comes with a lesser number of inbuilt adapters so you might have to write some yourself.</sub></p>
+<h2 id="what-are-adapters">What are Adapters?<a class="anchor" href="#what-are-adapters">#</a></h2>
+<p>Moshi uses adapters for parsing the content of JSON into a primitive or a user-defined type. These adapters do all the heavy lifting and return us the data that we expect. Moshi comes with inbuilt adapters for primitives like Boolean, String, Integers, etc. However, to parse complex types we can either let Moshi handle it for us or we can take the matter into our own hands and create an adapter. We&rsquo;ll let Moshi handle everything for now but if you&rsquo;re interested in reading more about manually creating adapters, <a href="https://msfjarvis.dev/posts/manually-parsing-json-with-moshi/" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>Harsh has an awesome article for it.</a>
+</p>
+<h3 id="moshi-adapter-using-code-generation">Moshi adapter using code generation<a class="anchor" href="#moshi-adapter-using-code-generation">#</a></h3>
+<p>You can let Moshi create an adapter for you by annotating your class with <code>@JsonClass</code> and then passing <code>generateAdapter = true</code>. There&rsquo;s also an option to add <code>@Json</code> and specify the <code>name</code> when there&rsquo;s a difference between the JSON and the variable. Here&rsquo;s an example below.</p>
+<pre><code class="language-kotlin">@JsonClass(generateAdapter = true)
+class Person(
+    @Json(name = &quot;full_name&quot;) val fullName: String,
+    val age: Int,
+)
+</code></pre>
+<p>There are a lot more things that you can do with Moshi and we&rsquo;re not gonna go into that but this how we generate an adapter with the code generation method.</p>
+<p><sub>* You&rsquo;ll have to enable <code>kapt</code> and add the <a href="https://github.com/square/moshi#codegen" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>moshi-kotlin-codegen</a>
+ dependency so that Moshi can generate an adapter for this class for you</sub></p>
+<h3 id="moshi-adapter-using-reflection">Moshi adapter using reflection<a class="anchor" href="#moshi-adapter-using-reflection">#</a></h3>
+<p>In the case of reflection, there&rsquo;s really nothing to do except adding a <code>KotlinJsonAdapterFactory()</code> while creating an instance of Moshi.</p>
+<pre><code>var moshi = Moshi.Builder()
+    // KotlinJsonAdapterFactoy() should be always added in the end 
+    // so that moshi can try other adapters first.
+    .add(KotlinJsonAdapterFactory())
+    .build()
+</code></pre>
+<h2 id="polymorphic-adapters">Polymorphic Adapters<a class="anchor" href="#polymorphic-adapters">#</a></h2>
+<p>So, if Moshi can generate adapters for you both at build time and at runtime, why do you need a polymorphic adapter? And what even is it?</p>
+<p>Good questions! The problem we&rsquo;re trying solve is that Moshi can only generate adapters when exact types are known. In the case of an abstract class, it is impossible for Moshi to know which implementation of the abstract class it should create and that&rsquo;s when polymorphic adapters come in.</p>
+<p>Learning by seeing is best, so let&rsquo;s start dabbling in code. Suppose we have a base class called <code>Person</code> like this:</p>
+<pre><code class="language-kotlin">abstract class Person {
+    abstract val name: String
+    abstract val age: String
+    abstract val occupation: String
+}
+</code></pre>
+<p>and two subclasses of <code>Person</code>, <code>Doctor</code> and <code>Engineer</code>:</p>
+<pre><code class="language-kotlin">class Doctor(
+    override val name: String,
+    override val age: String
+) : Person() {
+    override val occupation: String = &quot;Doctor&quot;
+}
+</code></pre>
+<pre><code class="language-kotlin">class Engineer(
+    override val name: String,
+    override val age: String
+) : Person() {
+    override val occupation: String = &quot;Engineer&quot;
+}
+</code></pre>
+<p>Now, if you try to parse a JSON body where the <code>occupation</code> is Doctor or Engineer, we want Moshi to create an instance of <code>Doctor</code> or <code>Engineer</code> class respectively. However, Moshi cannot automatically determine this. Let&rsquo;s help it along.</p>
+<h3 id="creating-a-polymorphic-adapter">Creating a polymorphic adapter<a class="anchor" href="#creating-a-polymorphic-adapter">#</a></h3>
+<ol>
+<li>
+<p>First, add the <code>moshi-adapters</code> dependency.</p>
+<pre><code class="language-kotlin">implementation(&quot;com.squareup.moshi:moshi-adapters:&lt;latest version&gt;&quot;)
+</code></pre>
+</li>
+<li>
+<p>Create adapters for your subclasses (<code>Doctor</code> and <code>Engineer</code>) by either one of the methods mentioned <a href="#what-are-adapters" 
+  
+  
+>above 👆</a>
+.</p>
+</li>
+<li>
+<p>Now create an adapter for your abstract class (<code>Person</code> class in this example)</p>
+<pre><code class="language-kotlin">val adapterFactory = PolymorphicJsonAdapterFactory
+     .of(Person::class.java, &quot;occupation&quot;)
+     .withSubtype(Doctor::class.java, &quot;Doctor&quot;)
+     .withSubtype(Engineer::class.java, &quot;Engineer&quot;)
+</code></pre>
+<p>Here&rsquo;s the main part of our polymorphic adapter. We create an instance of <code>PolymorphicJsonAdapterFactory</code> for the type <code>Person</code>, and then we specify which key Moshi should use to determine the class it should instantiate. In our case, that&rsquo;s <code>occupation</code>.</p>
+<p>After that, we add all the subclasses of <code>Person</code> and specify the values of <code>occupation</code> on which those classes should be selected. In this case, a JSON body like this:</p>
+<pre><code class="language-json">{
+    name: &quot;Dr. Who&quot;,
+    age: 18,
+    occupation: &quot;Doctor&quot;
+}
+</code></pre>
+<p>will generate an instance of the <code>Doctor</code> class.</p>
+</li>
+<li>
+<p>The final step is to add this adapter to the builder of your <code>Moshi</code> instance.</p>
+<pre><code class="language-kotlin">val moshi = Moshi.Builder()
+	    .add(adapterFactory)
+	    .build()
+</code></pre>
+</li>
+</ol>
+<h2 id="ending-notes">Ending notes<a class="anchor" href="#ending-notes">#</a></h2>
+<p>Moshi is a powerful and fast JSON library that can perform some really cool stuff. It is built and maintained by some of the smartest developers in the Android space so try it out and have fun playing around with it &#x1f603;</p>
+
+
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/moshi/">Moshi</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/polymorphic/">Polymorphic</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/json/">JSON</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/kotlin/">Kotlin</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="http://localhost:1313/blog/stop-sharing-your-sharedpreferences/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Stop sharing your SharedPreferences</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="http://localhost:1313/blog/centralized-dependency-management-gradle-version-catalogs/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Centralized dependency management using Gradle version catalogs</span>
+    </a>
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/anshwasan"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Email"
+         href="mailto:ansh.wasan@example.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="LinkedIn"
+         href="https://linkedin.com/in/anshwasan"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/linkedin.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2026</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">Using polymorphic json adapter with Moshi</div> 
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-moshi">What is Moshi?</a></li>
+    <li><a href="#what-are-adapters">What are Adapters?</a>
+      <ul>
+        <li><a href="#moshi-adapter-using-code-generation">Moshi adapter using code generation</a></li>
+        <li><a href="#moshi-adapter-using-reflection">Moshi adapter using reflection</a></li>
+      </ul>
+    </li>
+    <li><a href="#polymorphic-adapters">Polymorphic Adapters</a>
+      <ul>
+        <li><a href="#creating-a-polymorphic-adapter">Creating a polymorphic adapter</a></li>
+      </ul>
+    </li>
+    <li><a href="#ending-notes">Ending notes</a></li>
+  </ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.301a8b0870381bf76b3b5182e8966d363a0474281183439beb024d8b8228fc66.js" integrity="sha256-MBqLCHA4G/drO1GC6JZtNjoEdCgRg0Ob6wJNi4Io/GY="
+    crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+
+  <script async defer src="https://api.skrilltrax.dev/latest.js"></script>
+<noscript><img src="https://api.skrilltrax.dev/noscript.gif" alt=""/></noscript>
+
+</body>
+
+</html>
