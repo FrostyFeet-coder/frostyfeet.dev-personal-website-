@@ -8,9 +8,9 @@ While designing an API endpoint for a "request a language" feature, I ran into a
 
 ## The Scenario
 
-We needed a dedicated endpoint (`GET /api/learn_available_languages`) to fetch a catalog of available languages for a user to learn. 
+We needed a dedicated endpoint (`GET /api/available_languages`) to fetch a catalog of available languages for a user to learn. 
 
-In our database schema, the available languages are derived from a `task` table, but the user's progress is stored in a `learn_worker_stats` table. The dilemma was: What happens if a new user hits this endpoint, but their `learn_worker_stats` row hasn't been created yet?
+In our database schema, the available languages are derived from a `task` table, but the user's progress is stored in a `user_learning_stats` table. The dilemma was: What happens if a new user hits this endpoint, but their `user_learning_stats` row hasn't been created yet?
 
 ## The Trap of the 400 Error
 
@@ -22,7 +22,7 @@ However, this creates a terrible developer experience for the frontend/mobile cl
 
 The better approach is **Graceful Degradation**. 
 
-Instead of treating the missing `learn_worker_stats` row as a hard error, the API should recognize that a missing row simply means the user hasn't started yet. 
+Instead of treating the missing `user_learning_stats` row as a hard error, the API should recognize that a missing row simply means the user hasn't started yet. 
 
 The API should return a `200 OK` status with an empty array:
 ```json
@@ -33,6 +33,6 @@ The API should return a `200 OK` status with an empty array:
 
 By decoupling the language catalog response from the strict existence of the user's stats row, we achieved a much more resilient system:
 1. The Android client doesn't need to wrap the network call in complex error handling. It just renders the empty state `[]` naturally.
-2. The client can call this endpoint safely upon entering the module, without worrying about race conditions regarding when the `learn_worker_stats` row is created.
+2. The client can call this endpoint safely upon entering the module, without worrying about race conditions regarding when the `user_learning_stats` row is created.
 
 When designing APIs, always ask: *Can the client do something useful with an empty state?* If yes, return the empty state. Reserve 400/500 errors for truly unrecoverable or illegal states.

@@ -4,7 +4,7 @@ date: "2026-08-19"
 description: "A look back at the hurdles of provisioning cloud VMs, avoiding OOM crashes, and managing Python environments alongside Node.js."
 ---
 
-Provisioning virtual machines for production isn't as simple as `apt-get install nodejs` and walking away. Yesterday, I spent time configuring and refining the setup process for a new production VM on Google Cloud (specifically, an `africa-south1-b` instance for the `lelapa-ai` environment). 
+Provisioning virtual machines for production isn't as simple as `apt-get install nodejs` and walking away. Yesterday, I spent time configuring and refining the setup process for a new production VM on Google Cloud. 
 
 Here are the key takeaways and hard-learned lessons from setting up a server that runs both a Node.js backend and multiple Python machine learning pipelines.
 
@@ -19,12 +19,12 @@ If you don't pin these, a deploy script that worked flawlessly in staging six mo
 
 ## 2. Managing Multiple Python Environments
 
-Our backend relies on different ML tools that require wildly different Python versions (e.g., an `autotransform` pipeline requiring Python 3.11.4 and a `silero` audio model requiring Python 3.8.10). 
+Our backend relies on different ML tools that require wildly different Python versions (e.g., a data-transformation pipeline requiring Python 3.11.4 and an audio model requiring Python 3.8.10). 
 
-Using the system Python is a recipe for disaster. The best solution I've found is installing Miniconda locally to the SSH user (e.g., `/home/karya/miniconda3`). 
+Using the system Python is a recipe for disaster. The best solution I've found is installing Miniconda locally to the SSH user (e.g., `/home/deploy/miniconda3`). 
 - Leave the `base` environment completely alone (this acts as your login shell fallback).
 - Create dedicated conda environments for each pipeline.
-- When your Node application needs to invoke a Python script, it should explicitly call the binary from the environment: `~/miniconda3/envs/autotransform/bin/python script.py`.
+- When your Node application needs to invoke a Python script, it should explicitly call the binary from the environment: `~/miniconda3/envs/data-pipeline/bin/python script.py`.
 
 ## 3. The Monorepo Build Trap (OOM Crashes)
 
